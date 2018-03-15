@@ -19,7 +19,7 @@ class User {
   ) {
     this.nombre = nombre;
     this.apellido = apellido;
-    this.edad = edad || 0;
+    this.edad = edad || 999;
     this.fechaNacimiento = fechaNacimiento;
   }
   id() {
