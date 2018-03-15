@@ -1,0 +1,28 @@
+type User {
+  # id unico
+  id: String
+  # nombre de persona
+  nombre: String
+  # apellido de persona
+  apellido: String
+  # edad de la persona
+  edad: Int
+  # fecha de nacimiento
+  fechaNacimiento: String
+}
+
+type Query {
+  getUser(index: Int): User
+  getUsers: [User]
+}
+
+input UserInput {
+  nombre: String
+  apellido: String
+  edad: Int
+  fechaNacimiento: String
+}
+
+type Mutation {
+  saveUser(input: UserInput): User
+}
