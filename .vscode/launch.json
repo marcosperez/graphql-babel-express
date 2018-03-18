@@ -1,0 +1,39 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceRoot}/src/index.js",
+      "stopOnEntry": false,
+      "args": ["-e", "js,graphql"],
+      "restart": true,
+      "cwd": "${workspaceRoot}",
+      "preLaunchTask": "npm start",
+      "runtimeExecutable": "nodemon",
+      "runtimeArgs": [
+        "--nolazy",
+        "--require",
+        "babel-register",
+        "--inspect=20322"
+      ],
+      "port": 20322,
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "console": "internalConsole",
+      "sourceMaps": true,
+      "outFiles": []
+    },
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "Node: Nodemon",
+      "cwd": "npm start",
+      "processId": "${command:PickProcess}",
+      "restart": true,
+      "protocol": "inspector"
+    }
+  ]
+}
