@@ -12,7 +12,14 @@ type User {
 }
 
 type Query {
-  getUser(index: Int): User
+  # ### GET User
+  # Retorna un usuario
+  # _Arguments_
+  # - **id**: User id (obligatorio)
+  getUser(id: Int!): User
+
+  # ### GET Users
+  # Retorna un listado de usuarios
   getUsers: [User]
 }
 

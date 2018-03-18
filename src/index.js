@@ -1,21 +1,21 @@
 var express = require("express");
 var graphqlHTTP = require("express-graphql");
-var { buildSchema } = require("graphql");
-import { importSchema } from "graphql-import";
 import { makeExecutableSchema } from "graphql-tools";
+const glue = require("schemaglue");
 
-const typeDefs = importSchema("./src/schemas/User.graphql");
-import userResolver from "./src/resolvers/User";
+const { schema, resolver } = glue("src/graphql");
 
-const schema = makeExecutableSchema({ typeDefs });
+const executableSchema = makeExecutableSchema({
+  typeDefs: schema,
+  resolvers: resolver
+});
 
 // The root provides the top-level API endpoints
 var app = express();
 app.use(
   "/graphql",
   graphqlHTTP({
-    schema: schema,
-    rootValue: userResolver,
+    schema: executableSchema,
     graphiql: true
   })
 );
