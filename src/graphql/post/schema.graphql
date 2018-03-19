@@ -1,0 +1,21 @@
+type Post {
+  #  **Identificador**
+  id: Int!
+  # Titulo del post
+  title: String
+  # Contenido del post
+  content: String
+}
+
+input PostInput {
+  # Titulo del post
+  title: String!
+  # Contenido del post
+  content: String!
+  # Resumen del post
+  summary: String
+}
+
+type Mutation {
+  createPost(input: PostInput): Post
+}
