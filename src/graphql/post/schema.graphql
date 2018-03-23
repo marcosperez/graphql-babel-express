@@ -5,6 +5,8 @@ type Post {
   title: String
   # Contenido del post
   content: String
+  # Autor del post
+  User: User
 }
 
 input PostInput {
@@ -14,6 +16,8 @@ input PostInput {
   content: String!
   # Resumen del post
   summary: String
+  # Autor del post
+  user_id: Int
 }
 
 type Mutation {
